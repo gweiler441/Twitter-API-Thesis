@@ -1,0 +1,60 @@
+{
+  "title": "Twitter Scraper Orchestrator Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "candidateElections": {
+      "title": "Candidate Elections",
+      "type": "array",
+      "description": "List of candidate-election combinations to scrape",
+      "editor": "json",
+      "items": {
+        "type": "object",
+        "properties": {
+          "candidate": {
+            "type": "string",
+            "title": "Twitter Handle",
+            "description": "Twitter handle (without @)"
+          },
+          "electionYear": {
+            "type": "integer",
+            "title": "Election Year",
+            "description": "Year of the election"
+          },
+          "start": {
+            "type": "string",
+            "title": "Start Date",
+            "description": "Start date in YYYY-MM-DD format"
+          },
+          "end": {
+            "type": "string",
+            "title": "End Date",
+            "description": "End date in YYYY-MM-DD format"
+          }
+        },
+        "required": ["candidate", "electionYear", "start", "end"]
+      }
+    },
+    "maxTweetsPerRun": {
+      "title": "Max Tweets Per Run",
+      "type": "integer",
+      "description": "Maximum number of tweets to collect per candidate per election",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "addUserInfo": {
+      "title": "Add User Info",
+      "type": "boolean",
+      "description": "Include detailed user information in the results",
+      "default": true
+    },
+    "scrapeTweetReplies": {
+      "title": "Scrape Tweet Replies",
+      "type": "boolean",
+      "description": "Also scrape replies to tweets",
+      "default": false
+    }
+  },
+  "required": ["candidateElections"]
+}
