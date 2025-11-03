@@ -1,0 +1,13 @@
+{
+  "name": "twitter-scraper-orchestrator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Orchestrator for Twitter scraping across multiple candidates and date ranges",
+  "dependencies": {
+    "apify": "^3.0.0",
+    "apify-client": "^2.0.0"
+  },
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}
